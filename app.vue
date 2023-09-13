@@ -24,7 +24,7 @@
       :class="{
         'text-xl': text === 1 || text === 2,
         'text-3xl': text > 2,
-        'text-4xl': text === 0 || text === 52,
+        'text-4xl': text === 0,
         'animate-fadeOut': isFadingOut,
         'animate-fadeIn': !isFadingOut,
       }"
@@ -99,7 +99,7 @@ const texts = [
   "Dabei wird teilweise Schülern im Unterricht diese Abhängigkeit von großen Unternehmen als normal dargestellt.",
   "So wird beispielsweise im Informatikunterricht oft standardmäßig von Windows ausgegangen, obwohl im IT-Bereich freie unixartige Betriebssysteme (Linux, FreeBSD, …) sehr wichtig sind.",
   "Dies widerspricht dem schulischen Bildungsauftrag. Schulen sollten den Schülern auch Unabhängigkeit und Selbstständigkeit vermitteln.",
-  "So verbreitet sich komerzielle Software immer weiter. Schüler kennen gar nichts anderes, es machen ja alle so...",
+  "So verbreitet sich kommerzielle Software immer weiter. Schüler kennen gar nichts anderes, es machen ja alle so...",
   "Schulen fördern somit Monopole und stärken die fehlende Medienkompetenz, die bereits jetzt ein großes Problem darstellt.",
   "Alternative Lösungen sind oft stabil und genauso einfach zu bedienen, oft sogar einfacher.",
   "Das einzige, das fehlt, ist das Marketing, das die großen Unternehmen betreiben.",
@@ -135,7 +135,6 @@ const texts = [
   "Dadurch ist die Schule unabhängig von großen Unternehmen und kann die Software an die eigenen Bedürfnisse anpassen.",
   "Dank offener Standards ist es auch möglich, die Software mit anderen Systemen zu verbinden.",
   "Außerdem ist man nicht mehr an ein einzelnes Unternehmen gebunden.",
-  "Ende",
   "Aus diesen Gründen baut Waldbaur auf freie Software.",
   "Wir bieten eine große Auswahl an freier Software an, die wir auch selbst nutzen.",
   "All unsere Software ist auf Schulen optimiert.",
@@ -258,7 +257,7 @@ onMounted(async () => {
     quote.value++;
     isQuote.value = true;
   });
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 8; i++) {
     await playNext(() => {
       isQuote.value = false;
       text.value++;
