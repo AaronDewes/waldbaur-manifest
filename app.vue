@@ -126,7 +126,7 @@ const texts = [
   "So werden jedes Jahr Milliarden von Steuergeldern verschwendet, die deutlich sinnvoller eingesetzt werden könnten,",
   "z.B., um Schulen mit besserer Hardware auszustatten, oder auch für Sanierungen oder Erweiterungen.",
   "Mittlerweile setzt sich in der Politik die Erkenntnis durch, dass freie Software wichtig ist.",
-  "Jedoch geht dies oft nur langsam vorran, auch wenn es bereits einige Erfolge gibt.",
+  "Jedoch geht dies oft nur langsam voran, auch wenn es bereits einige Erfolge gibt.",
   'Ein Beispiel ist der "Bundesmessenger", ein auf Matrix basierender Messenger, der von der Bundeswehr entwickelt wird.',
   "Dieser wird immer mehr auch in anderen Behörden eingesetzt.",
   "Auch die Bundesregierung hat sich in ihrem Koalitionsvertrag dazu bekannt, freie Software zu fördern.",
