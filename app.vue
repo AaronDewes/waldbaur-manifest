@@ -48,6 +48,12 @@ const qoutes: Quote[] = [
     document: "Das GNU-Manifest",
   },
   {
+    text: "Gutes zu tun und mit andern zu teilen, vergesst nicht; denn solche Opfer gefallen Gott.",
+    url: "https://www.bibleserver.com/text/LUT/Hebr%C3%A4er13",
+    author: "Die Bibel",
+    document: "Hebräer 13,16",
+  },
+  {
     text: "Sapere aude!",
     author: "Immanuel Kant",
     document: "Beantwortung der Frage: Was ist Aufklärung?",
@@ -119,7 +125,13 @@ const texts = [
   "All diese ermöglichen jedem Schüler Vollzugriff auf das System über das Netzwerk.",
   "So können Schüler jederzeit mit der Tafel interagieren, ohne dass der Lehrer dies verhindern kann.",
   "Außerdem können Tafeln so permanent beschädigt werden.",
-  "Auch MNS+ hat einige Sicherheitslücken, z.B. im Kursarbeitsmodus. Außerdem können Schüler die für Lehrer gedachte Fernsteuerungsfunktion nutzen.",
+  "Auch MNS+, die in Rheinland-Pfalz eingesetzte Schulplattform, hat einige Probleme.",
+  "So können Schüler z.B. über die eigentlich für Lehrer gedachte Fernsteuerungsfunktion die Kontrolle über den Computer ihrer Mitschüler übernehmen.",
+  "Der Kursarbeitsmodus soll eigentlich verhindern, dass Schüler während einer Klassenarbeit auf das Internet zugreifen können.",
+  "Dies kann jedoch von jedem Schüler mit wenigen Klicks umgangen werden.",
+  "Weiterhin übermittelt MNS+ in Kombination mit Nextcloud Passwörter im Klartext.",
+  "Diese können von jedem Schüler also einfach abgefangen werden.",
+  "Somit können Schüler das komplette Netzwerk einer Schule übernehmen, wenn sie das Passwort eines Lehrers abfangen.",
   "Langfristig sind also solche Lösungen oft deutlich teurer, gerade in Abomodellen, bei denen man auch noch pro Benutzer bezahlt.",
   "Wenn man dann vergisst, Benutzer zu löschen, jedes Elternteil sich einen eigenen Account erstellt, oder teilweise bei Geschwistern zwei Elternaccounts anlegen, entstehen unnötige Kosten.",
   "Auch wenn es sich nicht um die gleiche Art von Software handelt: Alleine die Stadt Dortmund zahlt jährlich 2 Millionen Euro an Microsoft.",
@@ -150,6 +162,8 @@ function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+const SKIP: number = 0;
+
 async function playNext(
   perform: () => void | Promise<void>,
   showFor = 5000,
@@ -157,16 +171,16 @@ async function playNext(
 ) {
   await perform();
   isFadingOut.value = false;
-  await sleep(showFor);
+  if (text.value > SKIP) await sleep(showFor);
   isFadingOut.value = true;
-  await sleep(waitAfterFadeOut);
+  if (text.value > SKIP) await sleep(waitAfterFadeOut);
 }
 
 onMounted(async () => {
   // TITEL
-  await sleep(2500);
+  if (SKIP === 0) await sleep(2500);
   isFadingOut.value = true;
-  await sleep(2500);
+  if (SKIP === 0) await sleep(2500);
   await playNext(() => {
     text.value++;
   }, 2500);
@@ -176,6 +190,9 @@ onMounted(async () => {
   // Die Kontrolle über die Verwendung der eigenen Ideen...
   await playNext(() => {
     isQuote.value = true;
+  }, 6000);
+  await playNext(() => {
+    quote.value++;
   }, 6000);
   await playNext(() => {
     isQuote.value = false;
@@ -221,7 +238,7 @@ onMounted(async () => {
     quote.value++;
     isQuote.value = true;
   });
-  for (let i = 0; i < 17; i++) {
+  for (let i = 0; i < 23; i++) {
     await playNext(() => {
       isQuote.value = false;
       text.value++;
