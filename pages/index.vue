@@ -30,7 +30,7 @@
       }"
       v-html="texts[text]"
     ></p>
-    <NuxtLink to="/full-text" class="absolute bottom-2 right-2 text-gray-300">
+    <NuxtLink to="/full-text" class="absolute bottom-2 right-2 text-gray-300 hidden lg:block">
       Überspringen und Text lesen
     </NuxtLink>
   </div>
